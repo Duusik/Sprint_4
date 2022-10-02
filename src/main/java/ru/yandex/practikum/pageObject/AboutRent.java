@@ -1,15 +1,19 @@
 package ru.yandex.practikum.pageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class AboutRent extends BasePage {
-    public AboutRent(WebDriver driver){
+    public final String data;
+    public AboutRent(WebDriver driver, String data){
         super(driver);
+        this.data = data;
+
     }
     //локатор для поля открытия календаря
     private final By dateField = By.xpath("//input[@placeholder='* Когда привезти самокат']");
     //локатор для выбора даты календаря
-    private final By selectDateDelivery = By.xpath("//div[@class='react-datepicker__day react-datepicker__day--030 react-datepicker__day--keyboard-selected react-datepicker__day--today']");
+    private final By selectDateDelivery = By.xpath(".//input[@placeholder='* Когда привезти самокат']");
     //локатор поля выбора срока аренды
     private final By rentPeriodField = By.xpath("//div[@class='Dropdown-placeholder']");
     //локатор выбора срока аренды из списка
@@ -27,7 +31,7 @@ public class AboutRent extends BasePage {
     //выбираем дату доставки
     public void selectDataDelivery() {
         driver.findElement(dateField).click();
-        driver.findElement(selectDateDelivery).click();
+        driver.findElement(selectDateDelivery).sendKeys(data + Keys.ENTER);
     }
     //выбираем период аренды
     public void selectPeriodRent() {

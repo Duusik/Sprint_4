@@ -13,21 +13,23 @@ public class MakeOrderTests extends BaseTest {
     private final String address;
     private final String stationMetro;
     private final String phoneNumber;
+    private final String data;
 
-    public MakeOrderTests(String name, String surname, String address, String stationMetro, String phoneNumber) {
+    public MakeOrderTests(String name, String surname, String address, String stationMetro, String phoneNumber, String data) {
         this.name = name;
         this.surname = surname;
         this.address = address;
         this.stationMetro = stationMetro;
         this.phoneNumber = phoneNumber;
+        this.data = data;
     }
 
     @Parameterized.Parameters
     public static Object[][] getDataCustomer() {
         //Введите тестовые данные
         return new Object[][]{
-                {"Андрей", "Сухов", "г.Рыбинск", "Черкизовская", "+79201341452"},
-                {"Илья", "Ильичев", "г.Ярославль", "Алма-Атинская", "+79022226435"},
+                {"Андрей", "Сухов", "г.Рыбинск", "Черкизовская", "+79201341452", "18.10.2022"},
+                {"Илья", "Ильичев", "г.Ярославль", "Алма-Атинская", "+79022226435", "25.11.2022"},
             };
     }
 
@@ -39,7 +41,7 @@ public class MakeOrderTests extends BaseTest {
         OrderPage orderPage = new OrderPage(driver, name, surname, address, stationMetro, phoneNumber);
         orderPage.customerInformationFields(MakeOrderTests.getDataCustomer());
         orderPage.clickOnTheButtonNext();
-        AboutRent aboutRent = new AboutRent(driver);
+        AboutRent aboutRent = new AboutRent(driver, data);
         aboutRent.selectDataDelivery();
         aboutRent.selectPeriodRent();
         aboutRent.clickOnTheCheckBoxBlack();
@@ -56,7 +58,7 @@ public class MakeOrderTests extends BaseTest {
         OrderPage orderPage = new OrderPage(driver, name, surname, address, stationMetro, phoneNumber);
         orderPage.customerInformationFields(MakeOrderTests.getDataCustomer());
         orderPage.clickOnTheButtonNext();
-        AboutRent aboutRent = new AboutRent(driver);
+        AboutRent aboutRent = new AboutRent(driver, data);
         aboutRent.selectDataDelivery();
         aboutRent.selectPeriodRent();
         aboutRent.clickOnTheCheckBoxBlack();
