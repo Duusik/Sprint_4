@@ -59,3 +59,4 @@ public class AboutRent extends BasePage {
         return driver.findElement(locatorForAssert).isDisplayed();
     }
 }
+//добавление файла в комит
