@@ -62,7 +62,7 @@ public class MakeOrderTests extends BaseTest {
         aboutRent.selectDataDelivery();
         aboutRent.selectPeriodRent();
         aboutRent.clickOnTheCheckBoxBlack();
-        aboutRent.inputComment("Хочу скорее кататься");
+        aboutRent.inputComment("Хочу скорее кататься на самокате");
         aboutRent.clickOnTheOrderButton();
         aboutRent.clickYesButton();
         Assert.assertTrue("Ошибка. Не найдено подтверждение заказа", aboutRent.isDisplay());

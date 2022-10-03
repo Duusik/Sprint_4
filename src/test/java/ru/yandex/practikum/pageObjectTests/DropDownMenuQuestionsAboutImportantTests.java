@@ -37,8 +37,7 @@ import ru.yandex.practikum.pageObject.MainPage;
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnTheMenuItem(numberItemMenu).click();
         String actual = mainPage.getCheckTextFromDropdownField(numberItemMenu);
-        Assert.assertEquals("Текст должен соответствовать " +
-                "ожидаемому. ",expected, actual);
+        Assert.assertEquals("Текст должен соответствовать ожидаемому. ",expected, actual);
     }
   }
 
